@@ -10,6 +10,9 @@
 #include <QDir>
 #include <QMessageBox>
 #include <QPixmap>
+#include <QSettings>
+#include "stdint.h"
+
 
 
 
@@ -27,6 +30,8 @@ public:
 
 private slots:
     void on_pbEnterTime_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -5,13 +5,16 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+
+    setWindowIcon(QIcon("ICON.png"));
     logYear = QDate::currentDate().toString("yyyy");
     logMonth = QDate::currentDate().toString("MM");
     dirName = "./logs/"+logYear+"/";
     dir.mkdir("./logs");
     dir.mkdir("./logs/"+logYear);
-    setWindowIcon(QIcon("iconET.png"));
+
 }
 
 MainWindow::~MainWindow()
@@ -68,5 +71,22 @@ void MainWindow::on_pbEnterTime_clicked()
         }
     }
     file.close();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    if (ui->checkBox->isChecked()){
+#ifdef Q_OS_WIN32
+    QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+    settings.setValue("WorkTime.exe", QDir::toNativeSeparators(QCoreApplication::applicationFilePath()));
+    settings.sync();
+#endif
+    }else{
+#ifdef Q_OS_WIN32
+    QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+    settings.remove("WorkTime.exe");
+#endif
+    }
 }
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>216</height>
+    <height>227</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,11 +19,18 @@
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>216</height>
+    <height>227</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Расчет рабочего времени</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>iсon.png</normaloff>iсon.png</iconset>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
@@ -104,7 +111,7 @@
       <x>20</x>
       <y>90</y>
       <width>361</width>
-      <height>71</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -113,7 +120,7 @@
     <widget class="QLabel" name="lblExitTime">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>20</y>
        <width>301</width>
        <height>31</height>
@@ -131,6 +138,32 @@
       <string>Время ухода</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>160</y>
+      <width>191</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Открывать при старте Windows</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>160</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Подтвердить</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

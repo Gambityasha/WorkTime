@@ -8,12 +8,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    setWindowIcon(QIcon("ICON.png"));
+    setWindowIcon(QIcon("icon.png"));
     logYear = QDate::currentDate().toString("yyyy");
     logMonth = QDate::currentDate().toString("MM");
-    dirName = "./logs/"+logYear+"/";
-    dir.mkdir("./logs");
-    dir.mkdir("./logs/"+logYear);
+    dirName = "../logs/"+logYear+"/";
+    dir.mkdir("../logs/");
+    dir.mkdir("../logs/"+logYear);
 
 }
 
@@ -46,8 +46,8 @@ void MainWindow::on_pbEnterTime_clicked()
     timeNew = time.addSecs(60*60*8+60*40);
     ui->lblExitTime->setText(timeNew.toString("HH:mm:ss"));
 
-    fname=QDateTime::currentDateTime().toLocalTime().toString("MM")+"_ExitTime.txt";
-    file.setFileName("./logs/"+logYear+"/"+fname);
+    fname=QDate::currentDate().toString("MM")+"_ExitTime.txt";
+    file.setFileName("../logs/"+logYear+"/"+fname);
     QTextStream stream(&file);
     stream.setFieldAlignment(QTextStream::AlignLeft);
     stream.setFieldWidth(32);

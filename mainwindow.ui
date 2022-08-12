@@ -25,10 +25,6 @@
   <property name="windowTitle">
    <string>Расчет рабочего времени</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>iсon.png</normaloff>iсon.png</iconset>
-  </property>
   <property name="documentMode">
    <bool>false</bool>
   </property>

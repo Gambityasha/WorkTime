@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    setWindowIcon(QIcon("icon.png"));
+    setWindowIcon(QIcon("ICON.png"));
     logYear = QDate::currentDate().toString("yyyy");
     logMonth = QDate::currentDate().toString("MM");
     dirName = "../logs/"+logYear+"/";

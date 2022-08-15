@@ -8,12 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
+    QDir::setCurrent(QCoreApplication::applicationDirPath());
+
     setWindowIcon(QIcon("ICON.png"));
-    logYear = QDate::currentDate().toString("yyyy");
-    logMonth = QDate::currentDate().toString("MM");
-    dirName = "../logs/"+logYear+"/";
-    dir.mkdir("../logs/");
-    dir.mkdir("../logs/"+logYear);
+
 
 }
 
@@ -25,7 +23,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pbEnterTime_clicked()
 {
-
+    logYear = QDate::currentDate().toString("yyyy");
+    logMonth = QDate::currentDate().toString("MM");
+    dirName = "../logs/"+logYear+"/";
+    dir.mkdir("../logs/");
+    dir.mkdir("../logs/"+logYear);
     //QTime::currentTime().toString("HH:mm:ss")
     QString h ;
     if (ui->leHTime->text().toInt()<10) {
@@ -79,12 +81,14 @@ void MainWindow::on_pushButton_clicked()
     if (ui->checkBox->isChecked()){
 #ifdef Q_OS_WIN32
     QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+    // QSettings settings("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
     settings.setValue("WorkTime.exe", QDir::toNativeSeparators(QCoreApplication::applicationFilePath()));
     settings.sync();
 #endif
     }else{
 #ifdef Q_OS_WIN32
     QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+        //QSettings settings("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
     settings.remove("WorkTime.exe");
 #endif
     }
